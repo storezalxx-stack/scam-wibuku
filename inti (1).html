@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>SCAMER WBK</title>
+
+<link
+    rel="icon"
+    type="image/png"
+    href="e2c957cc244b0caa695bb5c2567cadfd.jpg"
+>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #8d2cff55,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 90% 30%,
+            #5d00ff55,
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #160525,
+            #27083e,
+            #12021f
+        );
+}
+
+
+/* =========================
+   BACKGROUND EFFECT
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 40%,
+            #a83cff12 50%,
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding-bottom: 40px;
+}
+
+
+/* =========================
+   HEADER / VIDEO
+========================= */
+
+.hero {
+
+    height: 360px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius:
+        0 0 25px 25px;
+
+    background: #180524;
+}
+
+
+.hero-video {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    z-index: 0;
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 35%,
+            rgba(23,4,35,.3),
+            #180524
+        );
+
+    z-index: 1;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 30px;
+
+    bottom: 25px;
+}
+
+
+.logo h1 {
+
+    font-size: 20px;
+
+    color: #c68cff;
+
+    text-shadow:
+        0 0 15px #a020ff;
+}
+
+
+.logo p {
+
+    color: #b49dbf;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+
+    margin:
+        -5px 20px 25px;
+
+    padding: 20px;
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    border:
+        1px solid #7623a866;
+
+    border-radius: 20px;
+
+    background:
+        rgba(35,7,54,.78);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 10px 30px #0005;
+}
+
+
+/* AVATAR */
+
+.avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9a35ff,
+            #6920d8
+        );
+
+    font-size: 42px;
+
+    box-shadow:
+        0 0 25px #8d27ff88;
+}
+
+
+/* =========================
+   PROFILE INFO
+========================= */
+
+.info {
+
+    flex: 1;
+}
+
+
+.info-row {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin: 7px 0;
+}
+
+
+.info-item {
+
+    color: #a89aad;
+
+    font-size: 14px;
+}
+
+
+.info-item b {
+
+    color: white;
+
+    margin-left: 5px;
+}
+
+
+/* ONLINE */
+
+.online {
+
+    color: #48ff8b !important;
+}
+
+
+.online::before {
+
+    content: "●";
+
+    margin-right: 5px;
+}
+
+
+/* =========================
+   BATTERY
+========================= */
+
+.battery {
+
+    margin-top: 10px;
+
+    width: 220px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #35114e;
+}
+
+
+.battery-icon {
+
+    color: #45ff94;
+
+    font-size: 20px;
+}
+
+
+.battery-bar {
+
+    height: 7px;
+
+    width: 70px;
+
+    border-radius: 20px;
+
+    background: #45ff94;
+
+    transition: .3s;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding: 0 20px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+
+.nav::-webkit-scrollbar {
+
+    display: none;
+}
+
+
+.nav button {
+
+    flex-shrink: 0;
+
+    padding:
+        15px 25px;
+
+    border:
+        1px solid #7020a555;
+
+    border-radius: 30px;
+
+    color: #bda8c8;
+
+    background: #241033;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.nav button:hover,
+.nav button.active {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a33cff,
+            #7121dc
+        );
+
+    box-shadow:
+        0 0 20px #8b2cff66;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+
+    padding:
+        35px 20px 10px;
+}
+
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    font-size: 25px;
+}
+
+
+.section-title span {
+
+    color: #c37cff;
+}
+
+
+/* =========================
+   ID LIST
+========================= */
+
+.id-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.id-card {
+
+    width: 100%;
+
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        15px 18px;
+
+    border:
+        1px solid #70219a55;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(76,17,108,.45),
+            rgba(28,5,45,.8)
+        );
+
+    box-shadow:
+        0 8px 20px #0004;
+
+    transition: .25s;
+}
+
+
+.id-card:hover {
+
+    transform:
+        translateX(5px);
+
+    border-color:
+        #a83cff;
+
+    box-shadow:
+        0 0 20px #8d2cff33;
+}
+
+
+.id-card div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.id-card small {
+
+    color: #927ca0;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.id-card b {
+
+    color: white;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   SALIN BUTTON
+========================= */
+
+.id-card button {
+
+    border:
+        1px solid #8d2cff88;
+
+    border-radius: 10px;
+
+    padding:
+        9px 15px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d2cff,
+            #651bc9
+        );
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+
+.id-card button:hover {
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 0 15px #8d2cff88;
+}
+
+
+/* =========================
+   SCAM BOX
+========================= */
+
+.scam-box {
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    border:
+        1px solid #a83cff55;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(90,20,120,.5),
+            rgba(30,5,45,.85)
+        );
+
+    box-shadow:
+        0 10px 30px #0005;
+}
+
+
+.scam-title {
+
+    color: #bda8c8;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+
+.scam-value {
+
+    color: #d28cff;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 15px #8d2cff88;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 750px) {
+
+    .hero {
+
+        height: 300px;
+    }
+
+
+    .profile {
+
+        align-items:
+            flex-start;
+    }
+
+
+    .avatar {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 30px;
+    }
+
+
+    .info-row {
+
+        gap:
+            8px 18px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .hero {
+
+        height: 280px;
+    }
+
+
+    .profile {
+
+        margin-left: 12px;
+
+        margin-right: 12px;
+
+        padding: 15px;
+    }
+
+
+    .avatar {
+
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 25px;
+    }
+
+
+    .info-item {
+
+        font-size: 12px;
+    }
+
+
+    .battery {
+
+        width: 180px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <div class="hero">
+
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+
+            <source
+                src="VT.mp4"
+                type="video/mp4"
+            >
+
+        </video>
+
+
+        <div class="logo">
+
+            <h1>
+                ⚡ LIST SCAM WIBUKU ⚡
+            </h1>
+
+            <p>
+                BY ZAL (ID:7121083)
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+
+    <div class="profile">
+
+
+        <div class="avatar">
+            👤
+        </div>
+
+
+        <div class="info">
+
+
+            <div class="info-row">
+
+
+                <div class="info-item">
+
+                    🌐 NEGARA
+
+                    <b id="country">
+                        Indonesia
+                    </b>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    📱 DEVICE
+
+                    <b id="device">
+                        Android
+                    </b>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="info-row">
+
+
+                <div class="info-item">
+
+                    🌐 BROWSER
+
+                    <b id="browser">
+                        Chrome
+                    </b>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    📶 STATUS
+
+                    <b class="online">
+                        Online
+                    </b>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="battery">
+
+                <span class="battery-icon">
+                    ▣
+                </span>
+
+                <div
+                    class="battery-bar"
+                ></div>
+
+                <b id="battery">
+                    --%
+                </b>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="nav">
+
+
+        <button class="active">
+
+            ▦ &nbsp;
+            ALL ID SCAMER
+
+        </button>
+
+
+        <button
+            onclick="
+                window.open(
+                    'scambt.html',
+                    '_blank'
+                )
+            "
+        >
+
+            &nbsp;
+            ID SCAM BT
+
+        </button>
+
+
+        <button
+            onclick="
+                window.open(
+                    'foto.html',
+                    '_blank'
+                )
+            "
+        >
+
+            &nbsp;
+            ID SCAM BUY PREM
+
+        </button>
+
+
+        <button
+            onclick="
+                window.open(
+                    'https://docs.google.com/forms/d/e/1FAIpQLSdy24eTScUX2fZlfta3DZ4NxHPfOmTSequGSI5aG-Z1q-LP4A/viewform?usp=header',
+                    '_blank'
+                )
+            "
+        >
+
+            &nbsp;
+            LAPOR AKUN
+
+        </button>
+
+
+        <button
+            onclick="
+                window.open(
+                    'https://saweria.co/ZALXxuhuy',
+                    '_blank'
+                )
+            "
+        >
+
+            ✨ &nbsp;
+            SUPORT ME
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         DATA ID
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="section-title">
+
+            <span>
+                ▦
+            </span>
+
+            <b>
+                Data ALL ID Scamer
+            </b>
+
+        </div>
+
+
+
+        <div class="id-list">
+
+
+            <!-- ID 1 -->
+
+            <div class="id-card">
+
+                <div>
+
+                    <small>
+                        ID
+                    </small>
+
+                    <b>
+                        #*******
+                    </b>
+
+                </div>
+
+
+                <button
+                    onclick="
+                        copyID('#*******')
+                    "
+                >
+
+                    SALIN
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ID 2 -->
+
+            <div class="id-card">
+
+                <div>
+
+                    <small>
+                        ID
+                    </small>
+
+                    <b>
+                        #*******
+                    </b>
+
+                </div>
+
+
+                <button
+                    onclick="
+                        copyID('#*******')
+                    "
+                >
+
+                    SALIN
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ID 3 -->
+
+            <div class="id-card">
+
+                <div>
+
+                    <small>
+                        ID
+                    </small>
+
+                    <b>
+                        #*******
+                    </b>
+
+                </div>
+
+
+                <button
+                    onclick="
+                        copyID('#*******')
+                    "
+                >
+
+                    SALIN
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ID 4 -->
+
+            <div class="id-card">
+
+                <div>
+
+                    <small>
+                        ID
+                    </small>
+
+                    <b>
+                        #*******
+                    </b>
+
+                </div>
+
+
+                <button
+                    onclick="
+                        copyID('#*******')
+                    "
+                >
+
+                    SALIN
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ID 5 -->
+
+            <div class="id-card">
+
+                <div>
+
+                    <small>
+                        ID
+                    </small>
+
+                    <b>
+                        #*******
+                    </b>
+
+                </div>
+
+
+                <button
+                    onclick="
+                        copyID('#*******')
+                    "
+                >
+
+                    SALIN
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             JUMLAH SCAM
+        ========================== -->
+
+        <div class="scam-box">
+
+
+            <div class="scam-title">
+
+                ⚠️
+                Jumlah Rp ALL SCAM
+                ⚠️
+
+            </div>
+
+
+            <div class="scam-value">
+
+                Rp *.***
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   COPY ID
+========================= */
+
+function copyID(id) {
+
+    navigator.clipboard
+        .writeText(id)
+
+        .then(function() {
+
+            alert(
+                "ID " +
+                id +
+                " berhasil disalin!"
+            );
+
+        })
+
+        .catch(function() {
+
+            alert(
+                "Gagal menyalin ID"
+            );
+
+        });
+
+}
+
+
+
+/* =========================
+   DEVICE
+========================= */
+
+const ua =
+    navigator.userAgent;
+
+
+if (/Android/i.test(ua)) {
+
+    document
+        .getElementById("device")
+        .textContent =
+        "Android";
+
+}
+
+else if (/iPhone|iPad/i.test(ua)) {
+
+    document
+        .getElementById("device")
+        .textContent =
+        "iPhone";
+
+}
+
+else {
+
+    document
+        .getElementById("device")
+        .textContent =
+        "Desktop";
+
+}
+
+
+
+/* =========================
+   BROWSER
+========================= */
+
+if (ua.includes("Chrome")) {
+
+    document
+        .getElementById("browser")
+        .textContent =
+        "Chrome";
+
+}
+
+else if (ua.includes("Firefox")) {
+
+    document
+        .getElementById("browser")
+        .textContent =
+        "Firefox";
+
+}
+
+else if (ua.includes("Safari")) {
+
+    document
+        .getElementById("browser")
+        .textContent =
+        "Safari";
+
+}
+
+
+
+/* =========================
+   BATTERY
+========================= */
+
+if (navigator.getBattery) {
+
+    navigator
+        .getBattery()
+        .then(function(battery) {
+
+
+            function updateBattery() {
+
+                let level =
+                    Math.round(
+                        battery.level * 100
+                    );
+
+
+                document
+                    .getElementById("battery")
+                    .textContent =
+                    level + "%";
+
+
+                document
+                    .querySelector(
+                        ".battery-bar"
+                    )
+                    .style.width =
+                    level + "%";
+
+            }
+
+
+            updateBattery();
+
+
+            battery.addEventListener(
+                "levelchange",
+                updateBattery
+            );
+
+
+        });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
