@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ADMIN - SCAMER WBK</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    padding:20px;
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #8d2cff55,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #160525,
+            #27083e,
+            #12021f
+        );
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#c68cff;
+    margin-bottom:25px;
+}
+
+.login,
+.report{
+    padding:20px;
+    margin-bottom:15px;
+
+    border:1px solid #7623a866;
+    border-radius:18px;
+
+    background:#230736dd;
+
+    box-shadow:0 8px 25px #0006;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    margin:7px 0;
+
+    border:1px solid #70219a;
+    border-radius:10px;
+
+    background:#160522;
+    color:white;
+
+    outline:none;
+}
+
+button{
+    padding:12px 18px;
+    margin-top:10px;
+
+    border:0;
+    border-radius:10px;
+
+    color:white;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.loginBtn{
+    width:100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9a35ff,
+            #651bc9
+        );
+}
+
+.acc{
+    background:#168447;
+}
+
+.tolak{
+    background:#a52242;
+}
+
+.preview{
+    width:100%;
+    max-height:400px;
+
+    object-fit:contain;
+
+    margin-top:15px;
+
+    border-radius:12px;
+
+    background:#100318;
+}
+
+.info{
+    line-height:1.8;
+    color:#c9b7d2;
+}
+
+.info b{
+    color:white;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.actions select{
+    flex:1;
+    min-width:200px;
+}
+
+.empty{
+    text-align:center;
+    padding:30px;
+    color:#9e8ca8;
+}
+
+#adminPanel{
+    display:none;
+}
+
+.header-admin{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+}
+
+.logout{
+    background:#55142a;
+}
+
+.status{
+    padding:10px;
+    margin-bottom:15px;
+
+    border-radius:10px;
+
+    background:#35114e;
+    color:#cbb7d4;
+}
+
+.error{
+    color:#ff7b9c;
+    padding:15px;
+    text-align:center;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>
+    ⚡ ADMIN SCAMER WBK
+</h1>
+
+
+<!-- =========================
+     LOGIN ADMIN
+========================= -->
+
+<div
+    class="login"
+    id="loginBox"
+>
+
+    <h3>
+        🔐 LOGIN ADMIN
+    </h3>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Email admin"
+        autocomplete="email"
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password admin"
+        autocomplete="current-password"
+    >
+
+    <button
+        class="loginBtn"
+        id="loginBtn"
+        onclick="login()"
+    >
+        🔐 LOGIN ADMIN
+    </button>
+
+</div>
+
+
+<!-- =========================
+     PANEL ADMIN
+========================= -->
+
+<div
+    id="adminPanel"
+>
+
+    <div class="header-admin">
+
+        <div>
+
+            <b>
+                📋 LAPORAN MASUK
+            </b>
+
+            <br>
+
+            <small
+                id="adminEmail"
+                style="color:#9e8ca8"
+            ></small>
+
+        </div>
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            🚪 LOGOUT
+        </button>
+
+    </div>
+
+
+    <div
+        class="status"
+        id="panelStatus"
+    >
+        Menunggu laporan...
+    </div>
+
+
+    <div
+        id="reports"
+    ></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+
+<script>
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDVf9pB4lgU2L22o8HbsIPt1diZjJuNjiA",
+
+    authDomain:
+        "scamer-wibuku-85ec9.firebaseapp.com",
+
+    projectId:
+        "scamer-wibuku-85ec9",
+
+    storageBucket:
+        "scamer-wibuku-85ec9.firebasestorage.app",
+
+    messagingSenderId:
+        "476883765331",
+
+    appId:
+        "1:476883765331:web:a3e19520be1b2ddc4e9ea6"
+
+};
+
+
+/* =========================
+   INIT FIREBASE
+========================= */
+
+firebase.initializeApp(
+    firebaseConfig
+);
+
+const auth =
+    firebase.auth();
+
+const db =
+    firebase.firestore();
+
+
+/* =========================
+   LOGIN
+========================= */
+
+async function login(){
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+    const password =
+        document
+        .getElementById("password")
+        .value;
+
+    if(!email){
+
+        alert(
+            "Masukkan email admin."
+        );
+
+        return;
+    }
+
+    if(!password){
+
+        alert(
+            "Masukkan password admin."
+        );
+
+        return;
+    }
+
+    const button =
+        document
+        .getElementById("loginBtn");
+
+    button.disabled = true;
+
+    button.textContent =
+        "⏳ LOGIN...";
+
+
+    try{
+
+        await auth
+        .signInWithEmailAndPassword(
+            email,
+            password
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Login gagal:\n" +
+            error.message
+        );
+
+        button.disabled = false;
+
+        button.textContent =
+            "🔐 LOGIN ADMIN";
+
+    }
+
+}
+
+
+/* =========================
+   CEK LOGIN
+========================= */
+
+auth.onAuthStateChanged(
+    async function(user){
+
+        if(!user){
+
+            document
+            .getElementById("loginBox")
+            .style.display =
+                "block";
+
+            document
+            .getElementById("adminPanel")
+            .style.display =
+                "none";
+
+            return;
+        }
+
+
+        try{
+
+            /*
+             * CEK UID ADMIN
+             */
+
+            const adminDoc =
+                await db
+                .collection("admins")
+                .doc(user.uid)
+                .get();
+
+
+            if(!adminDoc.exists){
+
+                alert(
+                    "❌ Akun ini belum terdaftar sebagai admin."
+                );
+
+                await auth.signOut();
+
+                return;
+            }
+
+
+            /*
+             * TAMPILKAN PANEL
+             */
+
+            document
+            .getElementById("loginBox")
+            .style.display =
+                "none";
+
+            document
+            .getElementById("adminPanel")
+            .style.display =
+                "block";
+
+            document
+            .getElementById("adminEmail")
+            .textContent =
+                user.email || "";
+
+
+            loadReports();
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            alert(
+                "Gagal mengecek admin:\n" +
+                error.message
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   LOAD LAPORAN
+========================= */
+
+function loadReports(){
+
+    db.collection("reports")
+
+    .where(
+        "status",
+        "==",
+        "pending"
+    )
+
+    .orderBy(
+        "createdAt",
+        "desc"
+    )
+
+    .onSnapshot(
+
+        function(snapshot){
+
+            const box =
+                document
+                .getElementById(
+                    "reports"
+                );
+
+            const status =
+                document
+                .getElementById(
+                    "panelStatus"
+                );
+
+
+            box.innerHTML = "";
+
+
+            if(snapshot.empty){
+
+                status.textContent =
+                    "✅ Tidak ada laporan pending.";
+
+                box.innerHTML = `
+                    <div class="empty">
+
+                        🎉
+
+                        <br><br>
+
+                        Tidak ada laporan baru.
+
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            status.textContent =
+                "⚠️ " +
+                snapshot.size +
+                " laporan menunggu pemeriksaan.";
+
+
+            snapshot.forEach(
+                function(doc){
+
+                    createReport(
+                        doc.id,
+                        doc.data()
+                    );
+
+                }
+            );
+
+        },
+
+
+        function(error){
+
+            console.error(error);
+
+            document
+            .getElementById(
+                "panelStatus"
+            )
+            .innerHTML =
+                `
+                <span class="error">
+                    ❌ Gagal mengambil laporan:
+                    <br>
+                    ${escapeHTML(error.message)}
+                </span>
+                `;
+
+        }
+
+    );
+
+}
+
+
+/* =========================
+   BUAT CARD LAPORAN
+========================= */
+
+function createReport(
+    id,
+    data
+){
+
+    const box =
+        document
+        .getElementById(
+            "reports"
+        );
+
+
+    let kategoriPengirim =
+        "Tidak diketahui";
+
+
+    if(
+        data.kategoriPengirim ===
+        "scam_bt"
+    ){
+
+        kategoriPengirim =
+            "SCAM BT";
+
+    }
+
+
+    if(
+        data.kategoriPengirim ===
+        "scam_buy_prem"
+    ){
+
+        kategoriPengirim =
+            "SCAM BUY PREM";
+
+    }
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.className =
+        "report";
+
+
+    div.innerHTML = `
+
+        <div class="info">
+
+            <b>
+                📋 LAPORAN BARU
+            </b>
+
+            <br><br>
+
+            ID AKUN:
+
+            <b>
+                ${escapeHTML(
+                    data.idAkun
+                )}
+            </b>
+
+            <br>
+
+            KATEGORI:
+
+            <b>
+                ${escapeHTML(
+                    kategoriPengirim
+                )}
+            </b>
+
+            <br>
+
+            KETERANGAN:
+
+            <b>
+                ${escapeHTML(
+                    data.keterangan
+                )}
+            </b>
+
+        </div>
+
+
+        ${
+            data.fotoURL
+            ?
+            `
+            <img
+                class="preview"
+                src="${escapeAttribute(
+                    data.fotoURL
+                )}"
+                alt="Bukti laporan"
+                loading="lazy"
+            >
+            `
+            :
+            `
+            <div class="empty">
+                Tidak ada foto bukti.
+            </div>
+            `
+        }
+
+
+        <div class="actions">
+
+            <select
+                id="kategori-${escapeAttribute(id)}"
+            >
+
+                <option value="all">
+                    ALL ID SCAMER
+                </option>
+
+                <option value="scam_bt">
+                    SCAM BT
+                </option>
+
+                <option value="scam_buy_prem">
+                    SCAM BUY PREM
+                </option>
+
+            </select>
+
+
+            <button
+                class="acc"
+                onclick="approve('${escapeAttribute(id)}')"
+            >
+                ✅ ACC & TAMBAHKAN
+            </button>
+
+
+            <button
+                class="tolak"
+                onclick="rejectReport('${escapeAttribute(id)}')"
+            >
+                ❌ TOLAK
+            </button>
+
+        </div>
+
+    `;
+
+
+    box.appendChild(
+        div
+    );
+
+}
+
+
+/* =========================
+   APPROVE
+========================= */
+
+async function approve(
+    reportID
+){
+
+    const select =
+        document
+        .getElementById(
+            "kategori-" +
+            reportID
+        );
+
+
+    if(!select){
+
+        alert(
+            "Pilihan kategori tidak ditemukan."
+        );
+
+        return;
+    }
+
+
+    const kategori =
+        select.value;
+
+
+    if(!kategori){
+
+        alert(
+            "Pilih tujuan terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    const yakin =
+        confirm(
+            "ACC laporan ini dan tambahkan ke " +
+            namaKategori(kategori) +
+            "?"
+        );
+
+
+    if(!yakin){
+
+        return;
+    }
+
+
+    try{
+
+        const reportRef =
+            db
+            .collection("reports")
+            .doc(reportID);
+
+
+        const reportSnap =
+            await reportRef.get();
+
+
+        if(!reportSnap.exists){
+
+            alert(
+                "Laporan tidak ditemukan."
+            );
+
+            return;
+        }
+
+
+        const data =
+            reportSnap.data();
+
+
+        if(
+            data.status !==
+            "pending"
+        ){
+
+            alert(
+                "Laporan ini sudah diproses."
+            );
+
+            return;
+        }
+
+
+        /*
+         * BUAT BATCH
+         *
+         * Penambahan scam_ids
+         * dan perubahan reports
+         * dilakukan bersama.
+         */
+
+        const batch =
+            db.batch();
+
+
+        /*
+         * DOKUMEN BARU DI scam_ids
+         */
+
+        const scamRef =
+            db
+            .collection("scam_ids")
+            .doc();
+
+
+        batch.set(
+            scamRef,
+            {
+
+                idAkun:
+                    data.idAkun || "",
+
+                kategori:
+                    kategori,
+
+                fotoURL:
+                    data.fotoURL || "",
+
+                keterangan:
+                    data.keterangan || "",
+
+                reportID:
+                    reportID,
+
+                createdAt:
+                    firebase.firestore
+                    .FieldValue
+                    .serverTimestamp()
+
+            }
+        );
+
+
+        /*
+         * UPDATE REPORT
+         */
+
+        batch.update(
+            reportRef,
+            {
+
+                status:
+                    "approved",
+
+                kategoriAdmin:
+                    kategori,
+
+                approvedAt:
+                    firebase.firestore
+                    .FieldValue
+                    .serverTimestamp(),
+
+                approvedBy:
+                    auth.currentUser.uid
+
+            }
+        );
+
+
+        /*
+         * JALANKAN BATCH
+         */
+
+        await batch.commit();
+
+
+        alert(
+            "✅ Laporan berhasil di-ACC!" +
+            "\n\nTujuan: " +
+            namaKategori(kategori)
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Gagal ACC:\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================
+   TOLAK LAPORAN
+========================= */
+
+async function rejectReport(
+    reportID
+){
+
+    const alasan =
+        prompt(
+            "Masukkan alasan penolakan:"
+        );
+
+
+    if(
+        alasan === null
+    ){
+
+        return;
+    }
+
+
+    try{
+
+        const reportRef =
+            db
+            .collection("reports")
+            .doc(reportID);
+
+
+        const reportSnap =
+            await reportRef.get();
+
+
+        if(!reportSnap.exists){
+
+            alert(
+                "Laporan tidak ditemukan."
+            );
+
+            return;
+        }
+
+
+        const data =
+            reportSnap.data();
+
+
+        if(
+            data.status !==
+            "pending"
+        ){
+
+            alert(
+                "Laporan ini sudah diproses."
+            );
+
+            return;
+        }
+
+
+        await reportRef.update({
+
+            status:
+                "rejected",
+
+            alasanTolak:
+                alasan,
+
+            rejectedAt:
+                firebase.firestore
+                .FieldValue
+                .serverTimestamp(),
+
+            rejectedBy:
+                auth.currentUser.uid
+
+        });
+
+
+        alert(
+            "❌ Laporan ditolak."
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Gagal menolak:\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================
+   NAMA KATEGORI
+========================= */
+
+function namaKategori(
+    kategori
+){
+
+    if(
+        kategori ===
+        "all"
+    ){
+
+        return "ALL ID SCAMER";
+
+    }
+
+
+    if(
+        kategori ===
+        "scam_bt"
+    ){
+
+        return "SCAM BT";
+
+    }
+
+
+    if(
+        kategori ===
+        "scam_buy_prem"
+    ){
+
+        return "SCAM BUY PREM";
+
+    }
+
+
+    return kategori;
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function logout(){
+
+    try{
+
+        await auth.signOut();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Gagal logout:\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(
+    text
+){
+
+    if(
+        text === null ||
+        text === undefined
+    ){
+
+        return "";
+    }
+
+
+    return String(text)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+function escapeAttribute(
+    text
+){
+
+    return escapeHTML(
+        text
+    );
+
+}
+
+</script>
+
+</body>
+</html>
