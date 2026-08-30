@@ -1,0 +1,3798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Berhati-hati</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   BODY
+   ANIMASI RINGAN
+========================= */
+
+body{
+
+    min-height:100vh;
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(145,45,255,.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(0,190,255,.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255,45,170,.25),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #160525,
+            #24104a,
+            #081b35,
+            #35102f
+        );
+
+    background-size:
+        150% 150%,
+        140% 140%,
+        150% 150%,
+        300% 300%;
+
+    animation:
+        backgroundColor 18s ease-in-out infinite alternate;
+
+}
+
+
+/* =========================
+   BACKGROUND ANIMATION
+   RINGAN
+========================= */
+
+@keyframes backgroundColor{
+
+    0%{
+        background-position:
+            0% 0%,
+            100% 0%,
+            50% 100%,
+            0% 50%;
+    }
+
+    50%{
+        background-position:
+            40% 30%,
+            60% 50%,
+            30% 70%,
+            50% 50%;
+    }
+
+    100%{
+        background-position:
+            100% 100%,
+            0% 100%,
+            80% 20%,
+            100% 50%;
+    }
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    width:100%;
+
+    max-width:620px;
+
+    margin:auto;
+
+    padding:22px 14px 45px;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.header h1{
+
+    color:#ffd45c;
+
+    font-size:25px;
+
+    text-shadow:
+        0 0 8px rgba(255,190,50,.45);
+
+}
+
+.header p{
+
+    margin-top:6px;
+
+    color:#b9aec2;
+
+    font-size:12px;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:12px 42px 12px 14px;
+
+    border:1px solid rgba(160,80,255,.45);
+
+    border-radius:12px;
+
+    outline:none;
+
+    color:white;
+
+    background:rgba(15,8,28,.88);
+
+    font-size:13px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#766b80;
+
+}
+
+.search-box input:focus{
+
+    border-color:#a44cff;
+
+    box-shadow:
+        0 0 8px rgba(150,60,255,.25);
+
+}
+
+.search-icon{
+
+    position:absolute;
+
+    right:13px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:17px;
+
+    pointer-events:none;
+
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.warning-box{
+
+    padding:13px;
+
+    margin-bottom:22px;
+
+    border:1px solid rgba(255,195,77,.3);
+
+    border-radius:13px;
+
+    background:rgba(55,35,10,.45);
+
+    text-align:center;
+
+}
+
+.warning-box strong{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#ffd05c;
+
+    font-size:13px;
+
+}
+
+.warning-box span{
+
+    color:#aaa;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================
+   DAFTAR
+========================= */
+
+.scam-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.scam-card{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid rgba(145,70,220,.38);
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(67,20,95,.78),
+            rgba(20,8,35,.92)
+        );
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.25);
+
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+.card-title{
+
+    color:#ffd15c;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:11px;
+
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.info-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+}
+
+.label{
+
+    color:#94849e;
+
+    font-size:9px;
+
+    letter-spacing:.7px;
+
+}
+
+.id{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+
+
+/* =========================
+   NOMINAL
+========================= */
+
+.nominal{
+
+    text-align:right;
+
+}
+
+.nominal .label{
+
+    display:block;
+
+}
+
+.nominal b{
+
+    color:#d99aff;
+
+    font-size:13px;
+
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience{
+
+    margin-top:11px;
+
+    padding:9px;
+
+    border-radius:9px;
+
+    background:rgba(9,5,16,.7);
+
+    border:1px solid rgba(70,45,85,.7);
+
+}
+
+.experience .label{
+
+    display:block;
+
+    margin-bottom:4px;
+
+}
+
+.experience p{
+
+    color:#aaa;
+
+    font-size:10px;
+
+    line-height:1.45;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.copy-btn{
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:9px;
+
+    border:1px solid rgba(150,70,255,.5);
+
+    border-radius:9px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8c35e8,
+            #6020b8
+        );
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        transform .15s ease;
+
+}
+
+.copy-btn:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #a04cff,
+            #7130d0
+        );
+
+}
+
+.copy-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* =========================
+   NO RESULT
+========================= */
+
+.no-result{
+
+    display:none;
+
+    padding:22px;
+
+    margin-top:25px;
+
+    text-align:center;
+
+    border:1px dashed #5d426b;
+
+    border-radius:13px;
+
+    background:rgba(10,5,16,.7);
+
+}
+
+.no-result div{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+
+}
+
+.no-result strong{
+
+    display:block;
+
+    color:#ffd15c;
+
+    font-size:13px;
+
+}
+
+.no-result span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#888;
+
+    font-size:10px;
+
+}
+
+
+/* =========================
+   NOTE
+========================= */
+
+.note{
+
+    margin-top:30px;
+
+    padding:13px;
+
+    text-align:center;
+
+    border:1px dashed #5d426b;
+
+    border-radius:12px;
+
+    background:rgba(10,5,16,.65);
+
+}
+
+.note strong{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#ffd15c;
+
+    font-size:12px;
+
+}
+
+.note span{
+
+    color:#888;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .container{
+
+        padding:20px 12px 40px;
+
+    }
+
+    .header h1{
+
+        font-size:23px;
+
+    }
+
+    .info{
+
+        align-items:flex-start;
+
+    }
+
+    .id{
+
+        font-size:14px;
+
+    }
+
+    .nominal b{
+
+        font-size:12px;
+
+    }
+
+    .scam-card{
+
+        padding:13px;
+
+    }
+
+}
+
+
+/* =========================
+   REDUCE MOTION
+   AGAR LEBIH RINGAN
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    body{
+
+        animation:none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
+
+    <h1>⚠️ BERHATI-HATI</h1>
+
+    <p>
+        Laporan pengalaman komunitas
+    </p>
+
+</div>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchID"
+        placeholder="🔎 Cari ID... contoh: #7121083"
+        oninput="searchID()"
+    >
+
+    <span class="search-icon">
+        🔍
+    </span>
+
+</div>
+
+
+<!-- =========================
+     WARNING
+========================= -->
+
+<div class="warning-box">
+
+    <strong>
+        ⚠️ TIDAK ADA BUKTI KONKRET
+    </strong>
+
+    <span>
+        Data di halaman ini berasal dari pengalaman
+        atau laporan komunitas dan belum disertai
+        bukti konkret.
+    </span>
+
+</div>
+
+
+<!-- =========================
+     DAFTAR SCAM
+========================= -->
+
+<div class="scam-list">
+
+
+<!-- DATA 1 -->
+
+<div class="scam-card" data-id="806985">
+
+    <div class="card-title">
+        ⚠️ Scam BUY PREM
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #806985
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Data didapat dari komunitas Yuri Nee.
+        </p>
+
+    </div>
+
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#806985','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+
+    <button
+        class="copy-btn"
+        onclick="copyText('+62 831-8900-9987','nomor HP')"
+    >
+        📱 SALIN NOMOR HP
+    </button>
+
+</div>
+
+
+<!-- DATA 2 -->
+
+<div class="scam-card" data-id="2980768">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #2980768
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                30h prem
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Pernah dilaporkan oleh anggota komunitas
+            terkait transaksi premium.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#2980768','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 3 -->
+
+<div class="scam-card" data-id="10203096">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10203096
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10203096','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 4 -->
+
+<div class="scam-card" data-id="9634074">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #9634074
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#9634074','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 5 -->
+
+<div class="scam-card" data-id="8001749">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #8001749
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#8001749','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 6 -->
+
+<div class="scam-card" data-id="10586577">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10586577
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10586577','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 7 -->
+
+<div class="scam-card" data-id="2067483">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #2067483
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#2067483','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 8 -->
+
+<div class="scam-card" data-id="2197768">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #2197768
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#2197768','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 9 -->
+
+<div class="scam-card" data-id="4210544">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #4210544
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#4210544','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 10 -->
+
+<div class="scam-card" data-id="9158384">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #9158384
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#9158384','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 11 -->
+
+<div class="scam-card" data-id="6493085">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #6493085
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#6493085','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 12 -->
+
+<div class="scam-card" data-id="8241704">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #8241704
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#8241704','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 13 -->
+
+<div class="scam-card" data-id="7022838">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7022838
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7022838','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 14 -->
+
+<div class="scam-card" data-id="6667050">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #6667050
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#6667050','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 15 -->
+
+<div class="scam-card" data-id="5997113">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #5997113
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#5997113','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 16 -->
+
+<div class="scam-card" data-id="10292720">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10292720
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10292720','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 17 -->
+
+<div class="scam-card" data-id="7638999">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7638999
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7638999','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 18 -->
+
+<div class="scam-card" data-id="7503117">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7503117
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7503117','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 19 -->
+
+<div class="scam-card" data-id="1746384">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #1746384
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#1746384','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 20 -->
+
+<div class="scam-card" data-id="10778639">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10778639
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10778639','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 21 -->
+
+<div class="scam-card" data-id="5720168">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #5720168
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#5720168','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 22 -->
+
+<div class="scam-card" data-id="3631206">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #3631206
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#3631206','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 23 -->
+
+<div class="scam-card" data-id="9514814">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #9514814
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#9514814','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 24 -->
+
+<div class="scam-card" data-id="7214963">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7214963
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7214963','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 25 -->
+
+<div class="scam-card" data-id="10448390">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10448390
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10448390','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 26 -->
+
+<div class="scam-card" data-id="2528773">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #2528773
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#2528773','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 27 -->
+
+<div class="scam-card" data-id="5043485">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #5043485
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#5043485','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 28 -->
+
+<div class="scam-card" data-id="10647054">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10647054
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10647054','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 29 -->
+
+<div class="scam-card" data-id="10182510">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10182510
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10182510','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 30 -->
+
+<div class="scam-card" data-id="10636013">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10636013
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10636013','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 31 -->
+
+<div class="scam-card" data-id="6669384">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #6669384
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#6669384','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 32 -->
+
+<div class="scam-card" data-id="10648023">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10648023
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10648023','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 33 -->
+
+<div class="scam-card" data-id="7047581">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7047581
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7047581','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 34 -->
+
+<div class="scam-card" data-id="1842665">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #1842665
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#1842665','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 35 -->
+
+<div class="scam-card" data-id="4697113">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #4697113
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#4697113','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 36 -->
+
+<div class="scam-card" data-id="9741132">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #9741132
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#9741132','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 37 -->
+
+<div class="scam-card" data-id="4568986">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #4568986
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#4568986','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 38 -->
+
+<div class="scam-card" data-id="7471075">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7471075
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7471075','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 39 -->
+
+<div class="scam-card" data-id="8941853">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #8941853
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#8941853','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 40 -->
+
+<div class="scam-card" data-id="9631775">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #9631775
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#9631775','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 41 -->
+
+<div class="scam-card" data-id="8640411">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #8640411
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#8640411','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 42 -->
+
+<div class="scam-card" data-id="6095757">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #6095757
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#6095757','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 43 -->
+
+<div class="scam-card" data-id="7486517">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7486517
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7486517','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 44 -->
+
+<div class="scam-card" data-id="2780858">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #2780858
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#2780858','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 45 -->
+
+<div class="scam-card" data-id="9745568">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #9745568
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#9745568','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 46 -->
+
+<div class="scam-card" data-id="1155277">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #1155277
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#1155277','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 47 -->
+
+<div class="scam-card" data-id="7527902">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #7527902
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7527902','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA 48 -->
+
+<div class="scam-card" data-id="10558043">
+
+    <div class="card-title">
+        ⚠️ Scam bt prem
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG DILAPORKAN
+            </span>
+
+            <span class="id">
+                #10558043
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                JUMLAH SCAM
+            </span>
+
+            <b>
+                Tidak diketahui
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            Laporan didapat dari komunitas
+            Marga Yuri Nee.
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#10558043','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+<!-- DATA TERSEMBUNYI -->
+
+<div
+    class="scam-card hidden-data"
+    data-id="7121083"
+    style="display:none;"
+>
+
+    <div class="card-title">
+       🔰ORANG TEFBAIK AMANAH + RENDAH HATI🔰
+    </div>
+
+    <div class="info">
+
+        <div class="info-left">
+
+            <span class="label">
+                ID YANG ORANG BAIK
+            </span>
+
+            <span class="id">
+                #7121083
+            </span>
+
+        </div>
+
+        <div class="nominal">
+
+            <span class="label">
+                RETING ORANG BAIK
+            </span>
+
+            <b>
+                10/10
+            </b>
+
+        </div>
+
+    </div>
+
+    <div class="experience">
+
+        <span class="label">
+            PENGALAMAN
+        </span>
+
+        <p>
+            orang ini sangat baik dan tidak pernah berbuat kejahatan dan suka meminta maaf jika membuat kesalahan
+        </p>
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyText('#7121083','ID')"
+    >
+        📋 SALIN ID
+    </button>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     TIDAK DITEMUKAN
+========================= -->
+
+<div
+    class="no-result"
+    id="noResult"
+>
+
+    <div>🔍</div>
+
+    <strong>
+        ID Tidak Ditemukan
+    </strong>
+
+    <span>
+        Tidak ada ID yang cocok dengan pencarian kamu.
+    </span>
+
+</div>
+
+
+<!-- =========================
+     CATATAN
+========================= -->
+
+<div class="note">
+
+    <strong>
+        ⚠️ PERHATIAN
+    </strong>
+
+    <span>
+        Data di halaman ini merupakan laporan
+        pengalaman komunitas tanpa bukti konkret.
+        Informasi tersebut belum dapat dianggap
+        sebagai kepastian bahwa ID tersebut melakukan
+        penipuan.
+    </span>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   PENCARIAN
+========================= */
+
+function searchID(){
+
+    const input =
+        document
+        .getElementById("searchID")
+        .value
+        .toLowerCase()
+        .replace("#","")
+        .trim();
+
+
+    const cards =
+        document.querySelectorAll(".scam-card");
+
+
+    const noResult =
+        document.getElementById("noResult");
+
+
+    let found = false;
+
+
+    cards.forEach(function(card){
+
+        const id =
+            card
+            .getAttribute("data-id")
+            .toLowerCase();
+
+
+        const hidden =
+            card.classList.contains("hidden-data");
+
+
+        if(hidden){
+
+            if(
+                input !== "" &&
+                id.includes(input)
+            ){
+
+                card.style.display = "block";
+
+                found = true;
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        }else{
+
+            if(
+                input === "" ||
+                id.includes(input)
+            ){
+
+                card.style.display = "block";
+
+                found = true;
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        }
+
+    });
+
+
+    if(
+        input !== "" &&
+        !found
+    ){
+
+        noResult.style.display = "block";
+
+    }else{
+
+        noResult.style.display = "none";
+
+    }
+
+}
+
+
+/* =========================
+   SALIN TEXT
+========================= */
+
+function copyText(text,type){
+
+    navigator.clipboard
+        .writeText(text)
+
+        .then(function(){
+
+            alert(
+                type +
+                " " +
+                text +
+                " berhasil disalin!"
+            );
+
+        })
+
+        .catch(function(){
+
+            alert(
+                "Gagal menyalin " +
+                type
+            );
+
+        });
+
+}
+
+
+</script>
+
+
+</body>
+</html>

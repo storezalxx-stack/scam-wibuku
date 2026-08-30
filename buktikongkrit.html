@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bukti Konkret</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    color:white;
+
+    background:
+        radial-gradient(circle at 20% 10%, #8d2cff55, transparent 35%),
+        radial-gradient(circle at 90% 30%, #5d00ff55, transparent 40%),
+        linear-gradient(135deg, #160525, #27083e, #12021f);
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    padding:25px 15px 50px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:#c68cff;
+    font-size:27px;
+    text-shadow:0 0 15px #a020ff;
+}
+
+.header p{
+    margin-top:7px;
+    color:#a89aad;
+    font-size:13px;
+}
+
+/* DATA */
+
+.scam-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.scam-card{
+    padding:18px;
+
+    border:1px solid #70219a66;
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(76,17,108,.45),
+            rgba(28,5,45,.85)
+        );
+
+    box-shadow:0 10px 30px #0005;
+}
+
+/* BUKTI */
+
+.bukti-title{
+    margin-bottom:12px;
+
+    color:#d28cff;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.bukti{
+    width:100%;
+    max-height:400px;
+
+    display:block;
+
+    object-fit:contain;
+
+    border-radius:14px;
+    border:1px solid #70219a88;
+
+    background:#12051c;
+}
+
+/* INFO */
+
+.info{
+    margin-top:15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+}
+
+.info-left{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.label{
+    color:#927ca0;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.id{
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* JUMLAH */
+
+.nominal{
+    text-align:right;
+}
+
+.nominal .label{
+    display:block;
+}
+
+.nominal b{
+    color:#d28cff;
+    font-size:16px;
+}
+
+/* SALIN */
+
+.copy-btn{
+    width:100%;
+    margin-top:15px;
+
+    padding:11px;
+
+    border:1px solid #8d2cff88;
+    border-radius:10px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d2cff,
+            #651bc9
+        );
+
+    font-weight:bold;
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.copy-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 15px #8d2cff66;
+}
+
+/* CATATAN */
+
+.note{
+    margin-top:25px;
+    padding:15px;
+
+    border:1px dashed #5d426b;
+    border-radius:14px;
+
+    text-align:center;
+
+    background:#0b0610aa;
+}
+
+.note strong{
+    display:block;
+    margin-bottom:5px;
+    font-size:13px;
+}
+
+.note span{
+    color:#888;
+    font-size:11px;
+    line-height:1.5;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .info{
+        align-items:flex-start;
+    }
+
+    .id{
+        font-size:15px;
+    }
+
+    .nominal b{
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>🚨 BUKTI KONKRET</h1>
+
+        <p>
+            Daftar laporan yang disertai bukti
+        </p>
+
+    </div>
+
+
+    <!-- DAFTAR -->
+
+    <div class="scam-list">
+
+
+        <!-- =========================
+             DATA 1
+        ========================== -->
+
+        <div class="scam-card">
+
+            <div class="bukti-title">
+                📸 Bukti Scam
+            </div>
+
+            <!--
+                GANTI bukti1.jpg
+                dengan nama file foto bukti kamu
+            -->
+
+            <img
+                src="bukti1.jpg"
+                class="bukti"
+                alt="Bukti laporan"
+            >
+
+
+            <div class="info">
+
+                <div class="info-left">
+
+                    <span class="label">
+                        ID YANG DILAPORKAN
+                    </span>
+
+                    <span class="id">
+                        #xxxxxx
+                    </span>
+
+                </div>
+
+
+                <div class="nominal">
+
+                    <span class="label">
+                        JUMLAH SCAM
+                    </span>
+
+                    <b>
+                        30h prem
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="copy-btn"
+                onclick="copyID('#xxxxxx')"
+            >
+                📋 SALIN ID
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             DATA 2
+        ========================== -->
+
+        <div class="scam-card">
+
+            <div class="bukti-title">
+                📸 Bukti Scam
+            </div>
+
+            <img
+                src="bukti2.jpg"
+                class="bukti"
+                alt="Bukti laporan"
+            >
+
+
+            <div class="info">
+
+                <div class="info-left">
+
+                    <span class="label">
+                        ID YANG DILAPORKAN
+                    </span>
+
+                    <span class="id">
+                        #xxxxx
+                    </span>
+
+                </div>
+
+
+                <div class="nominal">
+
+                    <span class="label">
+                        JUMLAH SCAM
+                    </span>
+
+                    <b>
+                        7h prem
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="copy-btn"
+                onclick="copyID('#xxxxx')"
+            >
+                📋 SALIN ID
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- CATATAN -->
+
+    <div class="note">
+
+        <strong>
+            ⚠️ Catatan
+        </strong>
+
+        <span>
+            Data di halaman ini merupakan laporan
+            yang disertai bukti. Periksa bukti dan
+            informasi dengan teliti sebelum mengambil
+            kesimpulan.
+        </span>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function copyID(id){
+
+    navigator.clipboard.writeText(id)
+
+    .then(function(){
+
+        alert(
+            "ID " + id + " berhasil disalin!"
+        );
+
+    })
+
+    .catch(function(){
+
+        alert(
+            "Gagal menyalin ID"
+        );
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
